@@ -10,7 +10,7 @@ static const int focusonwheel       = 0;
 static const char *fonts[]          = { "monospace:size=15" };
 static const char dmenufont[]       = "monospace:size=15";
 
-static char col_1_bg[]              = "#9f2121"; /* Main (Peach) */
+static char col_1_bg[]              = "#9f2121"; /* Main */
 static char col_1_fg[]              = "#ecdbda"; 
 static char col_1_br[]              = "#9f2121"; /* Border */
 static char col_2_bg[]              = "#ecdbda"; /* Gray */
@@ -119,8 +119,10 @@ static Key keys[] = {
 	// Blossom Patches
 	{ MODKEY|ShiftMask,             XK_Right,  shiftview,      { .i = +1 } },
 	{ MODKEY|ShiftMask,             XK_Left,   shiftview,      { .i = -1 } },                 
-	{ MODKEY,			XK_p,	   spawn,	   SHCMD("maim \"${HOME}/photos/screenshots/$(date +'%Y_%m_%d_%s').png\"")},
-	{ MODKEY|ShiftMask,                       XK_p,      spawn,          SHCMD("maim --hidecursor \"${HOME}/photos/screenshots/$(date +'%Y_%m_%d_%s').png\"")},
+	{ MODKEY,			XK_p,	   spawn,	   SHCMD("maim \"${HOME}/photos/screenshots/$(date +'%Y_%m_%d_%s').png\"") },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("maim --hidecursor \"${HOME}/photos/screenshots/$(date +'%Y_%m_%d_%s').png\"") },
+	{ MODKEY|ShiftMask,		XK_a,	   spawn,	   SHCMD("pactl -- set-sink-volume 0 +10%") },
+	{ MODKEY,                       XK_a,      spawn,          SHCMD("pactl -- set-sink-volume 0 -10%") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
